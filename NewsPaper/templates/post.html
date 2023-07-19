@@ -1,0 +1,32 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block title %}
+Новость
+{% endblock title %}
+
+
+{% block content %}
+<h1>НОВОСТЬ</h1>
+   <hr>
+   {% if newspost %}
+       <table>
+           <tr>
+               <td>Название</td>
+               <td>Дата загрузки страницы</td>
+               <td>Текст</td>
+           </tr>
+
+           <tr>
+               <td>{{ newspost.title|currency }}</td>
+               <td>{{ time_now|date:'d.M.Y' }}</td>
+               <td>{{ newspost.text|currency }}</td>
+
+           </tr>
+
+
+       </table>
+   {% else %}
+       <h2> Новость отсутствует!</h2>
+   {% endif %}
+{% endblock content %}
